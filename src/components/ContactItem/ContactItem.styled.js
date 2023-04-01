@@ -13,5 +13,5 @@ export const Item = styled.li`
 
   border: 1px solid black;
   border-radius: 10px;
-  background-color: teal;
+  background-color: #4c3ec4;
 `;

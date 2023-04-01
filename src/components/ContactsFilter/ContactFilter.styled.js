@@ -11,5 +11,5 @@ export const Filter = styled.label`
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px 10px;
-  background-color: gray;
+  background-color: #4c3ec4;
 `;

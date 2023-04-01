@@ -16,6 +16,12 @@ code {
     monospace;
 }
 
+#root {
+  background: repeating-linear-gradient(45deg, black 1% 3%, #280569 5% 1%);
+  min-height: 100vh;
+  padding: 50px;
+}
+
 ul {
     list-style: none;
     margin: 0;

@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types';
 import { Formik, Field } from 'formik';
 import { FormField, Form, ErrorMessage } from './Form.styled';
 import { object, string } from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/contactsSlice';
+import { nanoid } from 'nanoid';
+import { selectContacts } from 'redux/selectors';
 
 const ValidSchema = object().shape({
   name: string()
@@ -18,12 +21,20 @@ const ValidSchema = object().shape({
     .required(),
 });
 
-export const AddForm = ({ onSubmit }) => {
+export const AddForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+
   const handleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
-    onSubmit(name, number);
+    if (contacts.some(contact => contact.name === name)) {
+      alert('contact already exists');
+      return;
+    }
+    dispatch(addContact({ name, number, id: nanoid() }));
     resetForm();
   };
+
   return (
     <div>
       <h1>Phonebook</h1>
@@ -58,8 +69,4 @@ export const AddForm = ({ onSubmit }) => {
       </Formik>
     </div>
   );
-};
-
-AddForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };

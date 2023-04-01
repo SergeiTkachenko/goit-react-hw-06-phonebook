@@ -14,7 +14,7 @@ export const Form = styled(FormikForm)`
 
   border: 1px solid black;
   border-radius: 10px;
-  background-color: teal;
+  background-color: #4c3ec4;
 `;
 
 export const FormField = styled.label`
@@ -26,9 +26,10 @@ export const FormField = styled.label`
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px 10px;
-  background-color: gray;
+  background-color: #0984f7ee;
 `;
 
 export const ErrorMessage = styled(FormikError)`
-  color: tomato;
+  color: #ff0000d8;
+  font-size: 20px;
 `;
